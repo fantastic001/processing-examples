@@ -66,6 +66,16 @@ class Snake
       }
   }
   
+  void draw(int r, int g, int b)
+  {
+      // draw snake 
+      fill(r,g,b);
+      for (int i = 0; i<size; i++) 
+      {
+        rect(ax[i]*step, ay[i]*step, step, step);
+      }
+  }
+  
 };
 
 Snake s;
@@ -106,13 +116,8 @@ void draw()
   // if not lost, draw
   fill(0,0,255);
   rect(food_x*step, food_y*step, step, step);
-  
-  // draw snake 
-  fill(255,0,0);
-  for (int i = 0; i<s.size; i++) 
-  {
-    rect(s.ax[i]*step, s.ay[i]*step, step, step);
-  }
+  s.draw(255,0,0);
+
 }
 
 void keyPressed()
