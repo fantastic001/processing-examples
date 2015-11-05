@@ -11,6 +11,35 @@ int vx, vy;
 int food_x, food_y;
 boolean lost = false; 
 
+class Snake 
+{
+  int size; 
+  int[] ax; 
+  int[] ay;
+  int points;
+  boolean lost;
+  int vx;
+  int vy;
+  
+  Snake() 
+  {
+    size = 3; 
+    points = 0;
+    vx = 1;
+    vy = 0;
+    
+    ax = new int[1024];
+    ax[0 ] = w/2;
+    ax[1] = w/2 - 1;
+    ax[2] = w/2;
+    
+    ay = new int[1024]; 
+    ay[0] = h/2; 
+    ay[1] = h/2;
+    ay[2] = h/2; 
+  }
+};
+
 void setup() 
 {
   frameRate(5);
@@ -27,6 +56,8 @@ void setup()
   ay[0] = h/2; 
   ay[1] = h/2;
   ay[2] = h/2; 
+  
+  Snake s = new Snake();
   
   food_x = (int) random(1, w-1); 
   food_y = (int) random(1, h-1);
